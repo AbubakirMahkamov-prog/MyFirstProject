@@ -32,6 +32,6 @@ def send_welcome(message):
 def javob(message):
         for i in valyutalar:
             if i['title']==message.text:
-                bot.send_message(message.chat.id,'<b>'+message.text+'</b>   '+i['code']+'  ning narxi   :  '+i['cb_price'] +'\n\nVaqt holatiga : '+i['date']+'\n\nManba  :  nbu.uz',parse_mode='HTML')
+                bot.send_message(message.chat.id,'<b>'+message.text+'</b>   '+i['code']+'\n\n<b>ning narxi</b>   :  '+i['cb_price'] +'\n\n<b>Vaqt holatiga</b> : '+i['date']+'\n\n<b>Manba  :</b>  nbu.uz',parse_mode='HTML')
 
 bot.polling()
