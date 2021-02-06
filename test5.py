@@ -4,7 +4,7 @@ valyu=requests.get('https://nbu.uz/uz/exchange-rates/json/')
 valyutalar=[]
 if valyu.status_code==200:
     valyutalar=json.loads(valyu.content)
-bot = telebot.TeleBot("1492086900:AAGBxwMbAtaJheqfi8-SmiyGKj82wUaAz9M")
+bot = telebot.TeleBot("1620323700:AAF-q5FcKrLwodzs99nB8T2I47xqA0r08Yk")
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
