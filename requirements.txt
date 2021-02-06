@@ -1,2 +1,2 @@
-telebot==0.0.4
-pytelegrambotapi==3.7.6
+pytelegrambotapi
+requests
