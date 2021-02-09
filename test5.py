@@ -1,9 +1,5 @@
 import telebot,requests,json
 from telebot import types
-valyu=requests.get('https://nbu.uz/uz/exchange-rates/json/')
-valyutalar=[]
-if valyu.status_code==200:
-    valyutalar=json.loads(valyu.content)
 bot = telebot.TeleBot("1620323700:AAF-q5FcKrLwodzs99nB8T2I47xqA0r08Yk")
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -30,6 +26,10 @@ def send_welcome(message):
     bot.send_message(message.chat.id, "<b>Valyuta kurslari uchun davlarlardan birini tanlang</b>", reply_markup=markup,parse_mode='HTML')
 @bot.message_handler(func=lambda message:True)
 def javob(message):
+        valyu=requests.get('https://nbu.uz/uz/exchange-rates/json/')
+        valyutalar=[]
+        if valyu.status_code==200:
+            valyutalar=json.loads(valyu.content)
         for i in valyutalar:
             if i['title']==message.text:
                 bot.send_message(message.chat.id,'<b>'+message.text+'</b>\n\n<b>1   '+i['code']+'  ning narxi</b>   :  '+i['cb_price'] +'\n\n<b>Vaqt holatiga</b> : '+i['date']+'\n\n<b>Manba  :</b>  nbu.uz',parse_mode='HTML')
